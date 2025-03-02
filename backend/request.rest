@@ -1,0 +1,23 @@
+GET http://localhost:5000/notes
+
+###
+POST http://localhost:5000/add-notes
+Content-Type: application/json
+
+{
+    "title": "Seoond",
+    "content": "oke gas oke gas"
+}
+
+###
+PATCH  http://localhost:5000/update-notes/6
+Content-Type: application/json
+
+{
+    "title": "TLTKTK",
+    "content": "sefofjACAis@gmail.com"
+}
+
+###
+DELETE http://localhost:5000/delete-notes/4
+
