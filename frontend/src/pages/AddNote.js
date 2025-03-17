@@ -11,7 +11,7 @@ const AddNote = () => {
   const saveNote = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/add-notes", {
+      await axios.post("http://34.136.132.0:5000/add-notes", {
         title,
         content,
       });
