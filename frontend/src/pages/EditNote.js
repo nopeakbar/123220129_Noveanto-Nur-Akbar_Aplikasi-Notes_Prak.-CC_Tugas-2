@@ -14,7 +14,7 @@ const EditNote = () => {
 
   const getNoteById = async () => {
     try {
-      const response = await axios.get(`http://34.135.248.11:5000/notes/${id}`);
+      const response = await axios.get(`https://backend-notes-559917148272.us-central1.run.app/notes/${id}`);
       setTitle(response.data.title);
       setContent(response.data.content);
     } catch (error) {
@@ -28,7 +28,10 @@ const EditNote = () => {
     console.log("Title:", title);
     console.log("Content:", content);
     try {
-      const response = await axios.patch(`http://34.135.248.11:5000/update-notes/${id}`, { title, content });
+      const response = await axios.patch(
+        `https://backend-notes-559917148272.us-central1.run.app/update-notes/${id}`, 
+        { title, content }
+      );
       console.log("Response from server:", response.data);
       navigate("/");
     } catch (error) {
