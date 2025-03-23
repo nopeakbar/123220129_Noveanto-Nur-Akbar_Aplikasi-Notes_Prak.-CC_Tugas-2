@@ -12,7 +12,7 @@ const NotesList = () => {
 
   const getNotes = async () => {
     try {
-      const response = await axios.get("http://34.135.248.11:5000/notes");
+      const response = await axios.get("https://backend-notes-559917148272.us-central1.run.app/notes");
       setNotes(response.data);
       setError(null);
     } catch (error) {
@@ -26,7 +26,7 @@ const NotesList = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://34.135.248.11:5000/delete-notes/${id}`);
+      await axios.delete(`https://backend-notes-559917148272.us-central1.run.app/delete-notes/${id}`);
       getNotes();
     } catch (error) {
       console.error("Error deleting note:", error);
