@@ -1,15 +1,11 @@
+import express from "express";
 import cors from "cors";
-import NoteRoute from "./routes/NoteRoute.js";
+import NotesRoute from "./routes/NotesRoute.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(NoteRoute);
+app.use(NotesRoute);
 
-// Tambahkan route default
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
-});
-
-app.listen(8080, () => console.log("Server connected"));
+app.listen(3000, () => console.log("server terhubung"));
