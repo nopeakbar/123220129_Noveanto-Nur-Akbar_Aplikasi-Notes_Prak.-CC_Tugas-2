@@ -1,21 +1,6 @@
-# Gunakan image dasar Node.js
-FROM node:18
-
-# Buat direktori kerja dalam container
-WORKDIR /usr/src/app
-
-# Salin file package.json dan install dependency
-COPY package*.json ./
-RUN npm install
-
-# Salin seluruh project ke container
+FROM node:20-alpine
+WORKDIR /app
 COPY . .
-
-# Pastikan Cloud Run bisa tahu kita pakai environment variable PORT
-ENV PORT=8080
-
-# Ekspos port (gunakan 8080, bukan 3000)
-EXPOSE 8080
-
-# Jalankan aplikasi
+RUN npm install --production
+EXPOSE 3000
 CMD ["node", "index.js"]
