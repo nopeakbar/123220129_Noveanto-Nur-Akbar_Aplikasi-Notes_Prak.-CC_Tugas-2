@@ -11,8 +11,11 @@ RUN npm install
 # Salin seluruh project ke container
 COPY . .
 
-# Ekspos port aplikasi
-EXPOSE 3000
+# Pastikan Cloud Run bisa tahu kita pakai environment variable PORT
+ENV PORT=8080
+
+# Ekspos port (gunakan 8080, bukan 3000)
+EXPOSE 8080
 
 # Jalankan aplikasi
 CMD ["node", "index.js"]
