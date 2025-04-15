@@ -8,9 +8,11 @@ app.use(cors());
 app.use(express.json());
 app.use(NoteRoute);
 
-// Tambahkan route default
+// Tambahkan route default untuk ngecek status
 app.get("/", (req, res) => {
   res.send("Backend is running!");
 });
 
-app.listen(8080, () => console.log("Server connected"));
+// Pakai PORT dari environment variable agar compatible dengan Cloud Run
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Server connected on port ${PORT}`));
