@@ -8,6 +8,8 @@ app.use(cors());
 app.use(express.json());
 app.use(NoteRoute);
 
-// Ganti port menjadi process.env.PORT agar sesuai dengan port yang diberikan Cloud Run
-const port = process.env.PORT || 3000; // Port yang diatur oleh Cloud Run, fallback ke 3000 jika tidak ada
-app.listen(port, () => console.log(`Server berjalan di port ${port}`));
+// Mendengarkan port yang ditentukan oleh Cloud Run atau fallback ke 3000
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server berjalan di port ${port}`);
+});
