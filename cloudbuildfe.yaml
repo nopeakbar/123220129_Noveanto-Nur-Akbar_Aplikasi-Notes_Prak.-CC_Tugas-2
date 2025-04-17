@@ -1,5 +1,5 @@
 steps:
-  # Step 1: Deploy langsung ke App Engine tanpa membangun Docker image
+  # Step 1: Deploy langsung ke App Engine
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -7,7 +7,7 @@ steps:
       - deploy
       - app.yaml
       - '--quiet'
-    dir: '.'  # Menunjuk ke folder frontend saat ini icikiwir
+    dir: 'frontend'
 
 options:
-  logging: CLOUD_LOGGING_ONLY  # Opsional: hanya mencatat log ke Google Cloud Logging
+  logging: CLOUD_LOGGING_ONLY
