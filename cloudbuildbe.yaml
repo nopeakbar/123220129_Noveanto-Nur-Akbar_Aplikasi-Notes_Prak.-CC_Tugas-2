@@ -7,6 +7,7 @@ steps:
       - '-t'
       - 'gcr.io/$PROJECT_ID/akbar-notes129-backend'
       - '.'
+    dir: 'backend'   # 👈 TAMBAHKAN ini supaya build dari folder backend
 
   # Step 2: Push Docker image to Google Container Registry
   - name: 'gcr.io/cloud-builders/docker'
