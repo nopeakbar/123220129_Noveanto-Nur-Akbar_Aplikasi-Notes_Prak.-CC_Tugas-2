@@ -1,20 +1,14 @@
-runtime: python39  # Menggunakan runtime standar untuk hosting HTML statis
-service: fe-notessyifa  # Nama layanan App Engine, bisa diubah sesuai kebutuhan
+runtime: nodejs20  # Menggunakan runtime standar untuk hosting HTML statis
+service: akbarnotes  # Nama layanan App Engine, bisa diubah sesuai kebutuhan
 instance_class: F1  # Kelas instance untuk App Engine (F1 adalah kelas standar yang ringan)
 
 handlers:
-  - url: /  # Menangani request ke root (home)
-    static_files: public/index.html  # Menyajikan file index.html dari public/
-    upload: public/index.html
+  - url: /
+    static_files: build/index.html
+    upload: build/index.html
 
-  # Serve file js
-  - url: /js/(.*)
-    static_files: public/js/\1  # Mengarahkan ke folder public/js/
-    upload: public/js/(.*)
-
-  # Serve file statis lainnya
   - url: /(.*)
-    static_files: public/\1  # Mengarahkan ke folder public untuk file lainnya
-    upload: public/(.*)
+    static_files: build/\1
+    upload: build/(.*)
 
-default_expiration: "1h"  # Waktu cache default
+default_expiration: "1h"
